@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+    {% block title%}Link Shortner{% endblock %}
+    {% block css %}
+    <style>
+        .mid-box-600{
+            margin: 0 auto;
+            max-width: 600px;
+            margin-top: 20vh;
+        }
+    </style>
+    {% endblock %}
+    {% block body %}
+    <div class="mid-box-600">
+        
+            {% if hasUpdates != 1 %}
+            <form  method="GET" action="">
+                <div class="form-floating mb-3">
+                    <input type="url" class="form-control" name="url" id="floatingInput" placeholder="https://link.ext">
+                    <label for="floatingInput">Link to shorten</label>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-dark" type="submit">Shorten</button>
+                </div>
+            </form>
+            {% endif %}
+            {% if hasUpdates == 1 %}
+            <div class="form-floating mb-3">
+                <input type="url" class="form-control" name="url" id="floatingInput" value="http://127.0.0.1:5000/{{shorturl}}">
+                <label for="floatingInput">Shortend link</label>
+            </div>
+            <div id="status"></div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-dark" onclick="copyToClipboard()">Copy</button>
+            </div>
+            {% endif %}
+    </div>
+    <script>
+        function copyToClipboard() {
+            var textBox = document.getElementById("floatingInput");
+            textBox.select();
+            document.execCommand("copy");
+            document.getElementById("status").innerHTML = "<p class='text-primary'>Copied to clipboard<p>"
+        }
+    </script>
+    {% endblock %}

@@ -1,7 +1,7 @@
 from flask import Flask, json, redirect, render_template, request, url_for, jsonify, abort
 import pymongo
 from bs4 import BeautifulSoup
-from pymongo import message
+import pymongo
 import requests
 import string
 import random

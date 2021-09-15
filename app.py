@@ -5,10 +5,11 @@ import pymongo
 import requests
 import string
 import random
+import os
 app = Flask(__name__)
 
 
-myclient = pymongo.MongoClient("mongodb+srv://sahil:Sahil8139@cluster0.5qqak.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+myclient = pymongo.MongoClient(os.environ.get('MONGO_SRV'))
 mydb = myclient["URLShortner"]
 mycol = mydb["urls"]
 

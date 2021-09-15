@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+    {% block title%}Find Roomy | Search {% endblock %}
+    {% block css %}
+        <style>
+            @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+            .mid-box-600{
+                margin: 0 auto;
+                max-width: 600px;
+            }
+        </style>
+    {% endblock %}
+    {% block body %}
+    <h2>Search in links</h2>
+    <form method="GET" action="" style="display: flex;">
+        <input type="text" class="form-control" placeholder="" name="q" value="{{searchedFor}}" required><br>
+        <button style="margin-left: 4px;" class="btn btn btn-dark" type="submit"><i class="bi bi-search"></i></button>
+    </form>
+    {% if updates == 1 %}
+    <br>
+    <h5>Search results for {{Shortlink}}</h5>
+    <br>
+    <ul class="list-group">
+        {% for i in dataCast %}
+            <li class="list-group-item">
+                <span><b>Long Url :</b><a href="{{i[0]}}">{{i[0]}}</a></span><br>
+                <span><b>Clicks : </b>{{i[1]}}</span><br>
+                <span><b>Short Code : </b>{{i[2]}}</span><br>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if updates == -1 %}
+    <br>
+    <h4>No results found</h4>
+    {% endif %}
+    {% endblock %}

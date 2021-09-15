@@ -12,6 +12,12 @@ myclient = pymongo.MongoClient("mongodb+srv://sahil:Sahil8139@cluster0.5qqak.mon
 mydb = myclient["URLShortner"]
 mycol = mydb["urls"]
 
+def get_num_of_clicks(url):
+    x = mycol.find_one({'uid':uid})
+    clicks = x['cid']
+    return clicks
+
+
 def get_keywords(url):
     r = requests.get(url)
     soup = BeautifulSoup(r.content, 'html.parser')
@@ -46,6 +52,19 @@ def get_keywords(url):
         print("No image_og found...")
     return resp
 
+@app.route('/track')
+def track():
+    q = request.args.get('q')
+    if q:
+        shortcode = q.split('/')
+        shortcode = shortcode[3]
+        x = mycol.find_one({'uid':shortcode})
+        longUrl = x['lurl']
+        clicks = x['cid']
+        dataCast = [[longUrl,clicks,shortcode]]
+        return render_template('search.html',updates=1,dataCast=dataCast,Shortlink=q)
+    else:
+        return render_template('search.html')
 
 @app.route('/<uid>')
 def shorten(uid):
@@ -55,6 +74,10 @@ def shorten(uid):
         description = x['description']
         title = x['title_og']
         image_og = x['image_og']
+        clicks = x['cid']
+        filter = { 'uid': uid }
+        newvalues = { "$set": { 'cid': clicks+1 } }
+        x = mycol.update_one(filter,newvalues)
         return render_template('redirect.html',error=0,message="",longurl=longUrl,description=description,title=title,image_og=image_og)
     except:
         return render_template('redirect.html',error=1,message="Link  not valid or expired.",title="Something went wrong")
@@ -69,7 +92,7 @@ def index():
         title_og = resp['title_og']
         keywords = resp['keywords']
         res = ''.join(random.choices(string.ascii_uppercase +string.digits, k = 6))
-        data = data = {'lurl':request.args.get('url'),'image_og':image_og,'description':description,'title_og':title_og,'keywords':keywords,'uid':res}
+        data = data = {'lurl':request.args.get('url'),'image_og':image_og,'description':description,'title_og':title_og,'keywords':keywords,'uid':res,'cid':0}
         x = mycol.insert_one(data)
         return render_template('index.html',hasUpdates=1,shorturl=res)
     return render_template('index.html')

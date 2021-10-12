@@ -34,3 +34,17 @@ Project Organization
     ├── Procfile           <- for heroku deployment
     │
     └── app.py             <- Main python app containing the flask app
+
+## How to get started
+To use this project, follow these steps:
+
+* Make a `.env` file using the command `virtualenv env`
+* Clone this repository 
+```
+git clone https://github.com/sahiljena/link-shortner.git
+```
+* Install dependencies 
+```
+pip install -r requirements.txt
+```
+* Run the App  `python app.py` or `flask run`

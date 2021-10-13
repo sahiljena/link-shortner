@@ -1,12 +1,9 @@
 # link-shortner
 This is a simple link shortner built with Flask and MongoDB, it also tracks the number of clicks and redirects from the link.
+Check out the deployed link <a href="https://linnks.herokuapp.com/">here</a>
 
-## How it works
-<img src="" align="center">
-
-## How to use
-* Python <br>
-  <img src="" width="700">
+## Live Demo
+<a href="https://linnks.herokuapp.com/">https://linnks.herokuapp.com/</a>
 
 ## Built With:
 | Software/ Language | Version |

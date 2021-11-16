@@ -9,40 +9,283 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     {% block css %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
+    <style>
+    *{
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+    #particles-js{
+      position:absolute;
+      width: 100%; 
+      height: 230%;
+      background-color: rgba(0, 24, 69); 
+      background-image: url(""); 
+      background-repeat: no-repeat; 
+      background-size: 20%; 
+      background-position: 50% 50%; 
+      z-index: -10;
+      margin-top: -40vh;
+    }
+    .logo-css{
+      color: #FFF !important;
+      font-size: 1.6em !important;
+    }
+    .orange{
+      color: orange;
+    }
+    .l-a{
+      margin-right: 4px;
+    }
+    .r-a{
+      margin-left: 4px;
+    }
+    .real-nav{
+      display: flex;
+      justify-content: space-between;
+      background: rgba(0, 18, 51);
+      padding: 4px;
+    }
+    .real-nav .l-align{
+      margin-top: 10px;
+      margin-bottom: 10px !important;
+    }
+    .real-nav .l-align a{
+      font-size: 1.2em;
+      margin-top: 10px;
+      margin-right: 10px;
+      color: rgba(4, 102, 200);
+      text-decoration: none;
+    }
+    .real-nav .l-align a:hover{
+      color: rgba(3, 83, 164);
+    }
+    .real-nav .r-align .github-logo{
+      width: 120px;
+      border-radius: 8px;
+      padding: 1px 1px;
+      background: #FFF;
+      margin-right: 20px;
+      transform: scale(1);
+      margin-top: 6px;
+      -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    }
+    .github-img-mob{
+      width: 40px !important;
+      display: none;
+      border-radius: 100% !important;
+      padding: 2px !important;
+    }
+    .home{
+      text-align: center;
+      padding: 150px 0px 10px 0px;
+      color: #FFF;
+      border: 0px solid red;
+    }
+    .home .inner-home-bind h1{
+      font-size: 2.5em;
+    }
+    .home .faded-quote{
+      color: #5C677D;
+      font-style: oblique;
+      font-size: 1.1em;
+      max-width: 60vw;
+      margin: 0 auto;
+    }
+    #link-shortner-input{
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+    #link-shortner-input .input-link{
+      display: block;
+      width: 96%;
+      font-size: 1.5em;
+      margin: 0 auto;
+      border-radius: 8px;
+      padding: 10px 10px;
+      background: #33415C;
+      border: 0px;
+      border: 2px solid #000;
+    }
+    #link-shortner-input .input-link:focus{
+      outline: 0px;
+    }
+    .home #link-shortner-input .btn-a{
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 10vh; /* add this to last element of home section */
+      margin-top: 30px;
+      text-decoration: none;
+      color: #FFF;
+      font-size: 1.2em;
+      border-radius: 8px;
+      padding: 10px 10px;
+      background: #33415C;
+      -webkit-box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.75);
+      box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.75);
+      border: 0px;
+    }
+    .home #link-shortner-input .btn-a:hover{
+      -webkit-box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.75);
+    }
+    #built-with{
+      max-width: 550px;
+      margin: 0 auto;
+    }
+    #built-with .logo{
+      width: 50px;
+    }
+    .marquee-imgs img{
+      margin-right: 50px;
+    }
+    .features{
+      background: rgba(0, 18, 51);
+      padding: 40px 10px;
+      margin-top: 5vh;
+      color: #FFF;
+      text-align: center;
+    }
+    .features h2{
+      margin: 0 auto;
+    }
+    .sub-features-card-container{
+      display: flex;
+      justify-content: space-around;
+    }
+    .card{
+      width: 28%;
+      border: 0px solid #FFF;
+      padding: 8px;
+      border-radius: 8px;
+      background: #002855;
+      -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    }
+    .card img{
+      width: 50px;
+    }
+    .card h3{
+      font-size: 1.5em;
+      margin-right: 2px;
+      margin-top: 10px;
+    }
+    .card p{
+      font-size: 1.3em;
+      margin-right: 2px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .highlighted-div-me{
+      padding: 50px 50px;
+      border: 2px solid #FFF;
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 10vh;
+      border-radius: 9px;
+      background: rgba(0, 18, 51);
+      -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.75);
+    }
+    .highlighted-div-me p{
+      color: #FFF;
+      font-size: 1.3em;
+    }
+    @media only screen and (max-width: 600px) {
+      .github-logo{
+        display: none;
+      }
+      .github-img-mob{
+        display: block !important;
+      }
+      .input-link{
+        width: 95% !important;
+      }
+      .features{
+        padding: 10px;
+      }
+      .sub-features-card-container{
+        flex-direction: column;
+      }
+      .card{
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 40px;
+      }
+      #particles-js{
+        height: 300%;
+      }
+    }
+    .new-link{
+      color: #3bff6f;
+    }
+    .new-link::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: #3bff6f;
+      opacity: 1; /* Firefox */
+    }
+
+    .new-link::-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: #3bff6f;
+    }
+
+    .new-link::-ms-input-placeholder { /* Microsoft Edge */
+      color: #3bff6f;
+    }
+    .responsive-img-400{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border: 0px solid red;
+    position:fixed;
+    z-index: -1;
+  }
+  .results{
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  justify-content: space-around;
+  padding: 10px;
+  background: rgb(0,18,51);
+  margin-top: 10px;
+  border-radius: 10px;
+  color: rgba(4, 102, 200);
+}
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="https://www.primediamarketing.com/wp-content/uploads/2020/11/backlink-tips-for-seo.png" alt="" width="24" height="24" class="d-inline-block align-text-top">
-          Link Shortner
+    <nav class="real-nav">
+      <div class="l-align">
+        <a href="" class="logo-css"><span class="orange l-a">{</span><img src="https://www.svgrepo.com/show/68886/link.svg"
+            style="width: 30px; margin-bottom: -9px;"><span class="orange r-a">}</span></a>
+        <a href="/">Home</a>
+        <a href="/track">TrackURL</a>
+        <a href="/stats">Stats</a>
+      </div>
+      <div class="r-align">
+        <a href="https://github.com/sahiljena/link-shortner" target="_blank"><img src="https://informsuiuc.files.wordpress.com/2016/10/github-bb449e0ffbacbcb7f9c703db85b1cf0b.png"
+            class="github-logo">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="github-logo github-img-mob">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/track">Track</a>
-            </li>
-          </ul>
-          <form class="d-flex" method="GET" action="/track">
-            <input class="form-control me-2" type="search" name="q" placeholder="Link" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Track</button>
-          </form>
-        </div>
       </div>
     </nav>
-    <div class="container">
+    <main>
       {% block homeNav %}{% endblock %}
       <br>
       {% block body %}{% endblock %}
-    </div>
-    
-
+      
+    </main>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
@@ -52,5 +295,25 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     -->
+    <script>
+      particlesJS("particles-js",
+          {
+            "particles": {
+              "number": {
+                "value": 160,
+                "density": {
+                  "enable": true,
+                  "value_area": 800
+                }
+              },
+              "color": {
+                "value": "#ffffff"
+              },
+              "shape": {
+                "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 }
+              }, "opacity": { "value": 1, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 4, "size_min": 0.3, "sync": false } }, "line_linked": { "enable": false, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 600 } }
+            }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "repulse" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 250, "size": 0, "duration": 2, "opacity": 0, "speed": 3 }, "repulse": { "distance": 400, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true
+          });
+    </script>
   </body>
 </html>

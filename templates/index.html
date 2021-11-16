@@ -10,33 +10,62 @@
     </style>
     {% endblock %}
     {% block body %}
-    <div class="mid-box-600">
-        
-            {% if hasUpdates != 1 %}
-            <form  method="GET" action="">
-                <div class="form-floating mb-3">
-                    <input type="url" class="form-control" name="url" id="floatingInput" placeholder="https://link.ext">
-                    <label for="floatingInput">Link to shorten</label>
-                </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">Shorten</button>
+    <section class="home">
+        <div id="particles-js"></div>
+        <div class="inner-home-bind">
+            <p id="status"> </p>
+            {% if hasUpdates != 1%}
+            <form method="GET" action="">
+                <div id="link-shortner-input">
+                    <input name="url" type="url" class="input-link" placeholder="https://linnks.herokuapp.com/{{shorturl}}">
+                    <button type="submit" class="btn-a">Shorten 🚀</button>
                 </div>
             </form>
             {% endif %}
             {% if hasUpdates == 1 %}
-            <div id="status"></div>
-            <div class="form-floating mb-3">
-                <input type="url" class="form-control" name="url" id="floatingInput" value="https://linnks.herokuapp.com/{{shorturl}}" readonly>
-                <label for="floatingInput">Shortend link</label>
+            <div id="link-shortner-input">
+                <input readonly="true" style="border: 2px solid #3bff6f;" type="url" class="input-link new-link" value="https://linnks.herokuapp.com/{{shorturl}}" id="floatingInput">
+                <button style="background: #3bff6f;" class="btn-a" onclick="copyToClipboard()">Copy 📋</button>
             </div>
-            <div class="d-grid gap-2">
-                <button class="btn btn-primary" onclick="copyToClipboard()">Copy</button>
-            </div><br>
-            <a class="btn btn-danger" href="/track?q=https://linnks.herokuapp.com/{{shorturl}}">Track</a>
-            <br><br>
-            <a href="/" class="btn btn-dark">Go Back</a>
             {% endif %}
-    </div>
+            <h1>Shorten Your link 🔗, Share it with the World🌎</h1><br>
+            <p class="faded-quote">Amet massa vitae tortor condimentum lacinia quis vel eros donec. Pellentesque elit eget
+                gravida cum sociis.</p><br>
+        </div>
+    </section>
+    <section class="features">
+        <br><br>
+        <h2 style="font-size: 1.6em; margin: 0 auto;">Features</h2><br><br>
+        <div class="sub-features-card-container">
+            <div class="card">
+                <img src="https://www.svgrepo.com/show/349464/opensource.svg">
+                <h3>Fast</h3>
+                <p>Amet massa vitae tortor condimentum lacinia quis vel eros donec. Pellentesque elit eget gravida cum
+                    sociis.</p>
+            </div>
+            <div class="card">
+                <img src="https://www.svgrepo.com/show/27183/social-media.svg">
+                <h3>Tracking</h3>
+                <p>Number of times the shorten linked is clicked is also moniterd. You can check them by search the shortend link <a href="/track">here</a></p>
+            </div>
+            <div class="card">
+                <img src="https://www.svgrepo.com/show/110858/social-media.svg">
+                <h3>Meta Tags</h3>
+                <p>The generated short urls have most of the meta properties of that of the long url</p>
+            </div>
+        </div>
+        <br>
+        <br>
+    </section>
+    <section class="about-me" id="aboutme">
+        <article class="highlighted-div-me">
+            <p>Hi👋, I'm Sahil Jena👦, Developer💻 and a CS Student🧑‍🎓 from Delhi, India📍. I create websites and webapps
+                for
+                fun and learning, this site also might be for the same reason<br>
+                Want to contact me?<a style="color: aqua;" href="">Hit Up 💕</a>
+            </p>
+        </article>
+    </section>
     <script>
         function copyToClipboard() {
             var textBox = document.getElementById("floatingInput");

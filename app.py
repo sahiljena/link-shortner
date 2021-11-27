@@ -10,9 +10,8 @@ import socket
 app = Flask(__name__)
 
 
-# myclient = pymongo.MongoClient(os.environ.get('MONGO_SRV'))
-srv = 'mongodb+srv://sahil:Sahil8139@cluster0.5qqak.mongodb.net/myFirstDatabase?retryWrites=true&w=majority&ssl_cert_reqs=CERT_NONE'
-myclient = pymongo.MongoClient(srv)
+myclient = pymongo.MongoClient(os.environ.get('MONGO_SRV'))
+#myclient = pymongo.MongoClient(srv)
 mydb = myclient["URLShortner"]
 mycol = mydb["urls"]
 
